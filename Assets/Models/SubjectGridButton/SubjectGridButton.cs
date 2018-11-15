@@ -8,6 +8,10 @@ public class SubjectGridButton : MonoBehaviour
 
     [SerializeField] private Text nameText;
     [SerializeField] private Text idText;
+    [SerializeField] private Text type;
+    [SerializeField] private Text theoryTime;
+    [SerializeField] private Text practiceTime;
+    [SerializeField] private Text credits;
 
     public void SetNameText(string name){
         nameText.text = name;
@@ -16,6 +20,23 @@ public class SubjectGridButton : MonoBehaviour
     public void SetIdText(string id)
     {
         idText.text = id;
+    }
+
+    public void SetType(string type)
+    {
+        this.type.text = type;
+    }
+    public void SetTheryTime(string a)
+    {
+        theoryTime.text = a;
+    }
+    public void SetPracticeTimet(string a)
+    {
+        practiceTime.text = a;
+    }
+    public void SetCredits(string a)
+    {
+        credits.text = a;
     }
 
     public string GetIdText(){
@@ -27,18 +48,23 @@ public class SubjectGridButton : MonoBehaviour
         return nameText.text;
     }
 
+    public string GetTypet()
+    {
+        return type.text;
+    }
+    public string GetTheoryTime()
+    {
+        return theoryTime.text;
+    }
+    public string GetPracticeTime()
+    {
+        return practiceTime.text;
+    }
+    public string GetCredits()
+    {
+        return credits.text;
+    }
 
-
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void OnClick(){
         //SET VARIABLE FOR EXAM

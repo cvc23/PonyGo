@@ -9,7 +9,12 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] private Text xpText;
 	[SerializeField] private Text levelText;
 	[SerializeField] private GameObject menu;
-	[SerializeField] private AudioClip menuBtnSound;
+    [SerializeField] private GameObject menuButton;
+    [SerializeField] private Button training;
+    [SerializeField] private Button tutorial;
+    [SerializeField] private Button logout;
+    [SerializeField] private Button closeMenu;
+    [SerializeField] private AudioClip menuBtnSound;
 
 	private AudioSource audioSource;
 
@@ -37,17 +42,35 @@ public class UIManager : MonoBehaviour {
 		              " / " + GameManager.Instance.CurrentPlayer.RequiredXp;
 	}
 
-	public void MenuBtnClicked() {
+	public void MenuBtnClicked() 
+    {
 		audioSource.PlayOneShot(menuBtnSound);
         //		toggleMenu();
+        menu.SetActive(true);
+    }
+
+    public void TrainingButtonOnClick()
+    {
         List<GameObject> objects = new List<GameObject>();
         SceneTransitionManager.
         Instance.GoToScene(PocketDroidsConstants.SCENE_TRAINING, objects);
-
-
     }
 
-	private void toggleMenu() {
+    public void TutorialButtonOnClick()
+    {
+        //TODO
+    }
+
+    public void logoutButtonOnClick()
+    {
+        //TODO
+    }
+
+    public void closeMenuOnClick(){
+        menu.SetActive(false);
+    }
+
+    private void toggleMenu() {
 		menu.SetActive(!menu.activeSelf);
 	}
 }

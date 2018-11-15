@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CaptureSceneManager : PocketDroidsSceneManager {
 
@@ -9,6 +10,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
 	[SerializeField] private GameObject orb;
 	[SerializeField] private Vector3 spawnPoint;
     [SerializeField] private Droid[] droids;
+    [SerializeField] private Text nameSubject; 
 
     private int currentThrowAttempts;
 	private CaptureSceneStatus status = CaptureSceneStatus.InProgress;
@@ -32,10 +34,13 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
         switch (PocketDroidsConstants.DROID_SELECTED)
         {
             case "Especialidad1":
-                Instantiate(droids[0], new Vector3(0, 3, 2), Quaternion.identity);
+                Instantiate(droids[0], new Vector3(0, 0, 0), Quaternion.identity);
                 break;
             case "Especialidad2":
-                Instantiate(droids[1], new Vector3(0, 3, 2), Quaternion.identity);
+                Instantiate(droids[1], new Vector3(0, 0, 0), Quaternion.identity);
+                break;
+            case "Desarrollo de aplic. para Disp. Moviles":
+                Instantiate(droids[2], new Vector3(0, 0, 0), Quaternion.identity);
                 break;
             default:
                 break;
@@ -43,6 +48,9 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
         print(PocketDroidsConstants.DROID_SELECTED);
         GameObject droid = GameObject.FindWithTag("Droid");
         droid.transform.Rotate(0, 180, 0);
+        droid.transform.Translate(0.5f, 2.61f, -0.12f);
+        nameSubject.text = droid.GetComponent<Droid>().Subject;
+
     }
 
 	private void testTransition() {
