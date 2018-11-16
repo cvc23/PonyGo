@@ -79,7 +79,7 @@ public class OverrideOrb : MonoBehaviour {
     		else {
     			inputStatus = InputStatus.None;
     		}
-#endif
+        #endif
         //#if NOT_UNITY_EDITOR
         #if UNITY_ANDROID || UNITY_IOS
         if (Input.GetTouch(0).phase == TouchPhase.Began) {
@@ -92,7 +92,7 @@ public class OverrideOrb : MonoBehaviour {
     		else {
     			inputStatus = InputStatus.None;
     		}
-#endif
+        #endif
     }
 
     private void FollowInput() {
