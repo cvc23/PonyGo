@@ -88,6 +88,10 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
         Invoke("MoveToWorldScene", 2.0f);
     }
 
+    public void MoveToAR(){
+        SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_ARCAPTURE, new List<GameObject>());
+    }
+
     private void MoveToWorldScene()
     {
         SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_WORLD, new List<GameObject>());

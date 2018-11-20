@@ -9,11 +9,13 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] private Text xpText;
 	[SerializeField] private Text levelText;
 	[SerializeField] private GameObject menu;
+    [SerializeField] private GameObject alert;
     [SerializeField] private GameObject menuButton;
     [SerializeField] private Button training;
     [SerializeField] private Button tutorial;
     [SerializeField] private Button logout;
     [SerializeField] private Button closeMenu;
+    [SerializeField] private Button closeAlert;
     [SerializeField] private AudioClip menuBtnSound;
 
 	private AudioSource audioSource;
@@ -27,6 +29,10 @@ public class UIManager : MonoBehaviour {
 		Assert.IsNotNull(menu);
 		Assert.IsNotNull(menuBtnSound);
 	}
+
+    public void CloseAlert(){
+        alert.SetActive(false);
+    }
 
 	private void Update() {
 		updateLevel();
