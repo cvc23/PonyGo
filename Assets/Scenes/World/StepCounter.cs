@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using PedometerU;
+using UnityEngine.Assertions;
 
 public class StepCounter : MonoBehaviour {
 

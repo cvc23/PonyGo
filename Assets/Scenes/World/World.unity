@@ -825,6 +825,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f4cedae013f4521954f0b53c36c07d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StepText: {fileID: 171932764}
+  DistanceText: {fileID: 2071471752}
 --- !u!224 &410657743
 RectTransform:
   m_ObjectHideFlags: 0
