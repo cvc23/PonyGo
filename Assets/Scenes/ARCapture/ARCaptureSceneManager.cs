@@ -52,7 +52,7 @@ public class ARCaptureSceneManager : PocketDroidsSceneManager {
         print(PocketDroidsConstants.DROID_SELECTED);
         GameObject droid = GameObject.FindWithTag("Droid");
         droid.transform.Rotate(0, 180, 0);
-        droid.transform.Translate(0.5f, 2.61f, -0.12f);
+        droid.transform.Translate(0.5f, 2.61f, 1f);
         nameSubject.text = droid.GetComponent<Droid>().Subject;
 
     }

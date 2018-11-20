@@ -94,8 +94,8 @@ public class AROverrideOrb : MonoBehaviour {
             inputStatus = InputStatus.None;
         }
 #endif
-        //#if NOT_UNITY_EDITOR
-#if UNITY_ANDROID || UNITY_IOS
+        #if NOT_UNITY_EDITOR
+//#if UNITY_ANDROID || UNITY_IOS
         if (Input.GetTouch(0).phase == TouchPhase.Began)
         {
             inputStatus = InputStatus.Grabbing;
@@ -159,8 +159,8 @@ public class AROverrideOrb : MonoBehaviour {
 #if UNITY_EDITOR
         result = Input.mousePosition;
 #endif
-        //#if NOT_UNITY_EDITOR
-        #if UNITY_ANDROID || UNITY_IOS
+        #if NOT_UNITY_EDITOR
+        //#if UNITY_ANDROID || UNITY_IOS
         result = Input.GetTouch(0).position;
 #endif
 
