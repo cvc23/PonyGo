@@ -132,8 +132,8 @@ public class OverrideOrb : MonoBehaviour {
 		#if UNITY_EDITOR
 		result = Input.mousePosition;
         #endif
-        #if NOT_UNITY_EDITOR
-        //#if UNITY_ANDROID || UNITY_IOS
+        //#if NOT_UNITY_EDITOR
+        #if UNITY_ANDROID || UNITY_IOS
         result = Input.GetTouch(0).position;
 		#endif
 
