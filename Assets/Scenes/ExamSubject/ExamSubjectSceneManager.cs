@@ -20,10 +20,11 @@ public class ExamSubjectSceneManager : MonoBehaviour
         //Check how many attemps the user has
         //Get data from firebsae with the key 
         //PocketDroidsConstants.SUBJECTID_SELECTED;
-        answer1.GetComponentInChildren<Text>().text = "Si";
-        answer2.GetComponentInChildren<Text>().text = "Tal vez";
-        answer3.GetComponentInChildren<Text>().text = "No";
-        correctAswer = "No";
+        question.text= PocketDroidsConstants.SUBJECTID_SELECTED_QUESTION.Split('.')[0];
+        answer1.GetComponentInChildren<Text>().text = PocketDroidsConstants.SUBJECTID_SELECTED_QUESTION.Split('.')[1];
+        answer2.GetComponentInChildren<Text>().text = PocketDroidsConstants.SUBJECTID_SELECTED_QUESTION.Split('.')[2];
+        answer3.GetComponentInChildren<Text>().text = PocketDroidsConstants.SUBJECTID_SELECTED_QUESTION.Split('.')[3];
+        correctAswer = PocketDroidsConstants.SUBJECTID_SELECTED_QUESTION.Split('.')[4];
 
     }
 
@@ -43,7 +44,7 @@ public class ExamSubjectSceneManager : MonoBehaviour
             print("incorrecto!");
             wrongScreen.SetActive(true);
         }
-        Invoke("MoveToTrainingScene", 2.5f);
+        Invoke("MoveToTrainingScene", 1.5f);
     
     }
     private void MoveToTrainingScene()

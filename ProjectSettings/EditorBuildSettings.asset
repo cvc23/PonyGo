@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ExamSubject/ExamSubject.unity
     guid: 5685e0aeb19084c9289afb116e93fe1e
+  - enabled: 1
+    path: Assets/Scenes/ARCapture/ARCapture.unity
+    guid: 9d7d11572612d4f97b91f47fbe0002ec
   m_configObjects: {}

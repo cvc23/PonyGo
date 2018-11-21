@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class SubjectGridButton : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class SubjectGridButton : MonoBehaviour
     [SerializeField] private Text theoryTime;
     [SerializeField] private Text practiceTime;
     [SerializeField] private Text credits;
+    [SerializeField]
+    private List<string> questions = new List<string>();
+
+    public void SetQuestions(string data){
+        questions.Add(data);
+    }
 
     public void SetNameText(string name){
         nameText.text = name;
@@ -65,6 +72,11 @@ public class SubjectGridButton : MonoBehaviour
         return credits.text;
     }
 
+    public string GetQuestion(){
+        System.Random rnd = new System.Random();
+        return questions[rnd.Next(0, 2)];
+    }
+
 
     public void OnClick(){
         //SET VARIABLE FOR EXAM
@@ -72,6 +84,11 @@ public class SubjectGridButton : MonoBehaviour
         SubjectGridButton btn = obj.GetComponent<SubjectGridButton>();
         PocketDroidsConstants.SUBJECT_SELECTED = btn.GetNameText();
         PocketDroidsConstants.SUBJECTID_SELECTED = btn.GetIdText();
+        PocketDroidsConstants.SUBJECTID_SELECTED_TH = btn.GetTheoryTime();
+        PocketDroidsConstants.SUBJECTID_SELECTED_PH = btn.GetPracticeTime();
+        PocketDroidsConstants.SUBJECTID_SELECTED_CREDITS = btn.GetCredits();
+        PocketDroidsConstants.SUBJECTID_SELECTED_QUESTION = btn.GetQuestion();
+
         List<GameObject> objects = new List<GameObject>();
             SceneTransitionManager.
                                   Instance.GoToScene(PocketDroidsConstants.SCENE_ABOUTSUBJECT, objects);
