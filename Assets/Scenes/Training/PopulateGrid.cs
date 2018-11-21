@@ -8,7 +8,7 @@ public class PopulateGrid : MonoBehaviour
 
     string[,] subjectData = new string[,]
         { 
-        { "Calculo diferencial", "ACF-0901", "CB", "3", "2", "5", "¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
+            { "Calculo diferencial", "ACF-0901", "CB", "3", "2", "5", "¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
             { "Calculo integral", "ACF-0902", "CB", "3", "2", "5" ,"¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
             { "Mtematicas aplicadas a las comunicaciones", "TIE-1018", "IL", "3", "1", "4","¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
             { "Analisis de señales y sist. de comunicaciones", "TID-1004", "IL", "2", "3", "5" ,"¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
@@ -17,6 +17,7 @@ public class PopulateGrid : MonoBehaviour
             { "Rdes emergentes", "TIF-1026", "SC", "3", "2", "5" ,"¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
             { "Administracion y seguridad de redes", "TIF-1003", "SC", "3", "2", "5" ,"¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
             { "Interaccion humano computadora", "TIH-1016", "SC", "1", "3", "4" ,"¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
+            
             { "Fundamentos de programacion", "ACF-0901", "CB", "3", "2", "5" ,"¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
             { "Programación orientada a objetos", "AEB-1054", "SC", "1", "4", "5" ,"¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
             { "Estructuras y organizacion de datos", "TID-1012", "SC", "2", "3", "5" ,"¿Cuantos creditos obtienes con esta materia?.1.5.3.5", "¿En que semestre tomas esta materia?.1.5.3.1", "¿A qué academia pertenece la materia?.CB.SC.TIC.CB" },
@@ -77,20 +78,35 @@ public class PopulateGrid : MonoBehaviour
 		
 	}
 
-    private void populateGridSubject(){
-        for (int i = 0; i < subjectData.GetLength(0); i++){
+    private List<string> subjects = new List<string>();
 
-            GameObject subject = Instantiate(gridSubject, transform);
-            subject.GetComponent<SubjectGridButton>().SetNameText(subjectData[i, 0]);
-            subject.GetComponent<SubjectGridButton>().SetIdText(subjectData[i, 1]);
-            subject.GetComponent<SubjectGridButton>().SetType(subjectData[i,2]);
-            subject.GetComponent<SubjectGridButton>().SetTheryTime(subjectData[i, 3]);
-            subject.GetComponent<SubjectGridButton>().SetPracticeTimet(subjectData[i, 4]);
-            subject.GetComponent<SubjectGridButton>().SetCredits(subjectData[i, 5]);
-            subject.GetComponent<SubjectGridButton>().SetQuestions(subjectData[i, 6]);
-            subject.GetComponent<SubjectGridButton>().SetQuestions(subjectData[i, 7]);
-            subject.GetComponent<SubjectGridButton>().SetQuestions(subjectData[i, 8]);
+    private void populateGridSubject(){
+
+        //Change this list with the real static list...
+        subjects.Add("ACC-0906");
+        subjects.Add("TIC-1002");
+        subjects.Add("ACD-0908");
+        subjects.Add("TIF-1019");
+
+        for (int i = 0; i < subjects.Count; i++){
+            for (int j = 0; j < subjectData.GetLength(0); j++){
+
+                if (string.Equals(subjects[i], subjectData[j,1])){
+                    print("son iguales: " + subjects[i] + ", " + subjectData[j, 1]);
+                    GameObject subject = Instantiate(gridSubject, transform);
+                    subject.GetComponent<SubjectGridButton>().SetNameText(subjectData[j, 0]);
+                    subject.GetComponent<SubjectGridButton>().SetIdText(subjectData[j, 1]);
+                    subject.GetComponent<SubjectGridButton>().SetType(subjectData[j, 2]);
+                    subject.GetComponent<SubjectGridButton>().SetTheryTime(subjectData[j, 3]);
+                    subject.GetComponent<SubjectGridButton>().SetPracticeTimet(subjectData[j, 4]);
+                    subject.GetComponent<SubjectGridButton>().SetCredits(subjectData[j, 5]);
+                    subject.GetComponent<SubjectGridButton>().SetQuestions(subjectData[j, 6]);
+                    subject.GetComponent<SubjectGridButton>().SetQuestions(subjectData[j, 7]);
+                    subject.GetComponent<SubjectGridButton>().SetQuestions(subjectData[j, 8]);
+                }
+            }
 
         }
+
     }
 }

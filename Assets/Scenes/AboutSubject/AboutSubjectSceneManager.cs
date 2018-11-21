@@ -15,9 +15,9 @@ public class AboutSubjectSceneManager : MonoBehaviour {
         //subjectImage SETIMAGE
         nameText.text = PocketDroidsConstants.SUBJECT_SELECTED;
         infoText.text = "Datos generales de la materia\n"+
-            "Numero de horas teoricas: " + PocketDroidsConstants.SUBJECTID_SELECTED_TH + "\n"
-            + "Numero de horas practicas: " + PocketDroidsConstants.SUBJECTID_SELECTED_PH+"\n"
-            +"Numero creditos: " + PocketDroidsConstants.SUBJECTID_SELECTED_CREDITS + "\n";
+            "Numero de horas teoricas: " + PocketDroidsConstants.SUBJECT_SELECTED_TH + "\n"
+            + "Numero de horas practicas: " + PocketDroidsConstants.SUBJECT_SELECTED_PH+"\n"
+            +"Numero creditos: " + PocketDroidsConstants.SUBJECT_SELECTED_CREDITS + "\n";
 
 
     }

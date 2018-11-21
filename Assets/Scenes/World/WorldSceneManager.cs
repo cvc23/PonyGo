@@ -39,7 +39,7 @@ public class WorldSceneManager : PocketDroidsSceneManager {
             alert.GetComponentInChildren<Text>().text = "Alumno:\n Aun no puedes tomar esta materia...";
         }else{
             SceneTransitionManager.Instance.
-                                  GoToScene(PocketDroidsConstants.SCENE_ARCAPTURE, objects);
+                                  GoToScene(PocketDroidsConstants.SCENE_CAPTURE, objects);
         }
 	}
 }

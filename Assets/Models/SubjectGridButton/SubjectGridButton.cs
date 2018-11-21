@@ -72,9 +72,8 @@ public class SubjectGridButton : MonoBehaviour
         return credits.text;
     }
 
-    public string GetQuestion(){
-        System.Random rnd = new System.Random();
-        return questions[rnd.Next(0, 2)];
+    public List<string> GetQuestions(){
+        return questions;
     }
 
 
@@ -83,11 +82,11 @@ public class SubjectGridButton : MonoBehaviour
         GameObject obj = this.gameObject;
         SubjectGridButton btn = obj.GetComponent<SubjectGridButton>();
         PocketDroidsConstants.SUBJECT_SELECTED = btn.GetNameText();
-        PocketDroidsConstants.SUBJECTID_SELECTED = btn.GetIdText();
-        PocketDroidsConstants.SUBJECTID_SELECTED_TH = btn.GetTheoryTime();
-        PocketDroidsConstants.SUBJECTID_SELECTED_PH = btn.GetPracticeTime();
-        PocketDroidsConstants.SUBJECTID_SELECTED_CREDITS = btn.GetCredits();
-        PocketDroidsConstants.SUBJECTID_SELECTED_QUESTION = btn.GetQuestion();
+        PocketDroidsConstants.SUBJECT_SELECTED_ID = btn.GetIdText();
+        PocketDroidsConstants.SUBJECT_SELECTED_TH = btn.GetTheoryTime();
+        PocketDroidsConstants.SUBJECT_SELECTED_PH = btn.GetPracticeTime();
+        PocketDroidsConstants.SUBJECT_SELECTED_CREDITS = btn.GetCredits();
+        PocketDroidsConstants.SUBJECT_QUESTIONS = btn.GetQuestions();
 
         List<GameObject> objects = new List<GameObject>();
             SceneTransitionManager.
