@@ -29,7 +29,6 @@ namespace PedometerU.Platforms {
         }
         #endregion
 
-
         #region --Operations--
 
         private StepCallback stepCallback;

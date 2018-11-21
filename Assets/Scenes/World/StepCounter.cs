@@ -17,7 +17,7 @@ public class StepCounter : MonoBehaviour {
         // Reset UI
         //Charge number of steps from firebase
         int Steps = 0;
-        double Distance = (Steps * (3.28084)) * 0.3048;
+        double Distance = (Steps * (0.58));
         OnStep(Steps, Distance);
     }
 
