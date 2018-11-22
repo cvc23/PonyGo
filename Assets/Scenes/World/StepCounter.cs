@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using PedometerU;
 using UnityEngine.Assertions;
+using System;
 
 public class StepCounter : MonoBehaviour {
 
@@ -16,15 +17,16 @@ public class StepCounter : MonoBehaviour {
         pedometer = new Pedometer(OnStep);
         // Reset UI
         //Charge number of steps from firebase
-        int Steps = 0;
-        double Distance = (Steps * (0.58));
+        int Steps = PocketDroidsConstants.PLAYER_STEPS;
+        double Distance = (Steps * (0.48));
         OnStep(Steps, Distance);
-//        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void OnStep(int steps, double distance) {
-        // Display the values // Distance in feet
+        // Display the values
         StepText.text = steps.ToString();
+        PocketDroidsConstants.PLAYER_STEPS = steps;
         DistanceText.text = (distance).ToString("F2") + " m";
         if((steps%100)==0){
             //Subject apear code
