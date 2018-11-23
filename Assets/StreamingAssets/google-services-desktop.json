@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 0
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "389613211692-usu7coseooojcraab00d36lcnhlchg2q.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9xYvWqEBXLEocedl0uSYqPRE9CW34FDs"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:389613211692:ios:ac8014d2fc790fea", 
+        "android_client_info": {
+          "package_name": "com.dg.Ponygo"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "ponysgo-itm.appspot.com", 
+    "project_id": "ponysgo-itm", 
+    "firebase_url": "https://ponysgo-itm.firebaseio.com", 
+    "project_number": "389613211692"
+  }
+}

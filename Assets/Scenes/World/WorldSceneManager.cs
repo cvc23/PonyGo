@@ -25,21 +25,40 @@ public class WorldSceneManager : PocketDroidsSceneManager {
 	}
 
 	public override void droidTapped(GameObject droid) {
-//		SceneManager.LoadScene(PocketDroidsConstants.SCENE_CAPTURE);
-		List<GameObject> objects = new List<GameObject>();
-		print(objects);
-		objects.Add(droid);
-		print(objects);
-        Droid subject = droid.GetComponent<Droid>();
+        //		SceneManager.LoadScene(PocketDroidsConstants.SCENE_CAPTURE);
 
-        //check if the player can catch the subject
-        if(subject.name.Equals("Desarrollo de aplic. para Disp. Moviles"))
-        {
-            alert.SetActive(true);
-            alert.GetComponentInChildren<Text>().text = "Alumno:\n Aun no puedes tomar esta materia...";
-        }else{
-            SceneTransitionManager.Instance.
-                                  GoToScene(PocketDroidsConstants.SCENE_CAPTURE, objects);
-        }
-	}
+        if (checkCapturedSubjects(droid.GetComponent<Droid>().RequiredSubject))
+            GoToAdventure(droid);
+        else
+            StayHere();
+    }
+
+
+    public bool checkCapturedSubjects(string previousSub)
+    {
+        if (previousSub == "none")
+            return true;
+        else
+            foreach (var matAtrapada in PocketDroidsConstants.CAPTURED_SUBJECTS)
+                if (previousSub == matAtrapada) return true;
+        return false;
+    }
+
+
+    public void GoToAdventure(GameObject droid)
+    {
+        List<GameObject> objects = new List<GameObject>();
+        print(objects);
+        objects.Add(droid);
+        print(objects);
+        SceneTransitionManager.Instance.
+            GoToScene(PocketDroidsConstants.SCENE_CAPTURE, objects);
+    }
+    public void StayHere()
+    {
+        Debug.Log("no tienes los requerimientos");
+        alert.SetActive(true);
+        alert.GetComponentInChildren<Text>().text = "Alumno:\n Aun no puedes tomar esta materia...";
+    }
+
 }

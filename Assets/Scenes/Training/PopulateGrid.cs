@@ -78,7 +78,8 @@ public class PopulateGrid : MonoBehaviour
 		
 	}
 
-    private List<string> subjects = new List<string>();
+    //private List<string> subjects = new List<string>();
+    private List<string> subjects = PocketDroidsConstants.CAPTURED_SUBJECTS;
 
     private void populateGridSubject(){
 

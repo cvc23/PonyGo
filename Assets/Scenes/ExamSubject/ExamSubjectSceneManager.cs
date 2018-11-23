@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase;
+using Firebase.Unity.Editor;
+using Firebase.Database;
 
 public class ExamSubjectSceneManager : MonoBehaviour
 {
@@ -62,6 +65,26 @@ public class ExamSubjectSceneManager : MonoBehaviour
         {
             correctScreen.SetActive(true);
             correctScreen.GetComponentInChildren<Text>().text = "Felicidades! aprobaste la materia!";
+            Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLevelUp);
+            Firebase.Analytics.FirebaseAnalytics.LogEvent(
+                "AproboMateria", "materia_id", PocketDroidsConstants.SUBJECT_SELECTED_ID
+            );
+
+            DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
+
+            Materia materiaAprobada = new Materia(
+            PocketDroidsConstants.SUBJECT_SELECTED_ID,
+            PocketDroidsConstants.SUBJECT_SELECTED_CREDITS
+            );
+            string json = JsonUtility.ToJson(materiaAprobada);
+
+            dbref.
+            Child("alumnos").
+            Child(PocketDroidsConstants.USER_ID).
+            Child("materias").
+            Child("Aprobadas").
+            Push().
+            SetRawJsonValueAsync(json);
         }
         else
         {
@@ -120,5 +143,17 @@ public class ExamSubjectSceneManager : MonoBehaviour
     private void MoveToTrainingScene()
     {
         SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_TRAINING, new List<GameObject>());
+    }
+
+    public class Materia
+    {
+        public string id_materia;
+        public string creditos;
+
+        public Materia(string username, string email)
+        {
+            this.id_materia = username;
+            this.creditos = email;
+        }
     }
 }

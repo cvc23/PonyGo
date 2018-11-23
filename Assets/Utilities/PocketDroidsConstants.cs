@@ -12,6 +12,9 @@ public static class PocketDroidsConstants {
     public static string SCENE_ARCAPTURE = "ARCapture";
 
 
+    public static string USER_ID = "none";
+    public static List<string> CAPTURED_SUBJECTS = new List<string>();
+
     public static string TAG_DROID = "Droid";
 	public static string TAG_OVERRIDE_ORB = "OverrideOrb";
     public static string DROID_SELECTED = "none";
