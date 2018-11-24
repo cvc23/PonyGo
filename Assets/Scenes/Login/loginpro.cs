@@ -62,7 +62,7 @@ public class loginpro : MonoBehaviour {
                     {
                         IDictionary dictSubject = (IDictionary)materia.Value;
                         Debug.Log ("id: " 
-                        + dictSubject["id_materia"] 
+                        + materia.Key
                         + " atrapadas:  " 
                         + dictSubject["atrapadas"]
                         + " intentos:  " 
@@ -71,8 +71,9 @@ public class loginpro : MonoBehaviour {
                         
                         PocketDroidsConstants.CAPTUREDPRO_SUBJECTS.Add(
                             new PocketDroidsConstants.Materia(
-                                dictSubject["id_materia"].ToString(),
-                                System.Int32.Parse(dictSubject["atrapadas"].ToString())
+                                materia.Key.ToString(),
+                                System.Int32.Parse(dictSubject["atrapadas"].ToString()),
+                                System.Int32.Parse(dictSubject["intentos"].ToString())
                             ) );
 
                     }

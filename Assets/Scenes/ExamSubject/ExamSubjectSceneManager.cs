@@ -61,7 +61,8 @@ public class ExamSubjectSceneManager : MonoBehaviour
     }
 
     private void checkResult(){
-        string matAprobada_id = PocketDroidsConstants.SUBJECT_SELECTED_ID;
+        string materia_id = PocketDroidsConstants.SUBJECT_SELECTED_ID;
+        DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
 
         if (correct >= 2)
         {
@@ -69,17 +70,13 @@ public class ExamSubjectSceneManager : MonoBehaviour
             correctScreen.GetComponentInChildren<Text>().text = "Felicidades! aprobaste la materia!";
 
             
-
             Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLevelUp);
-            Firebase.Analytics.FirebaseAnalytics.LogEvent(
-                "AproboMateria", "materia_id", matAprobada_id
-            );
+            Firebase.Analytics.FirebaseAnalytics.LogEvent("AproboMateria", "materia_id", materia_id );
 
-            DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
 
             MateriaAP materiaAprobada = new MateriaAP(
                 System.Int32.Parse( PocketDroidsConstants.SUBJECT_SELECTED_CREDITS),
-                System.DateTime.Now.ToLongDateString()
+                System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
             );
             string json = JsonUtility.ToJson(materiaAprobada);
 
@@ -88,7 +85,7 @@ public class ExamSubjectSceneManager : MonoBehaviour
             Child(PocketDroidsConstants.USER_ID).
             Child("materias").
             Child("Aprobadas").
-            Child(matAprobada_id).
+            Child(materia_id).
             SetRawJsonValueAsync(json);
 
             PocketDroidsConstants.APROVED_SUBJECTS.Add(matAprobada_id);
@@ -100,9 +97,18 @@ public class ExamSubjectSceneManager : MonoBehaviour
             //verify how many times the user has taken this exam
             foreach (var materia in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
             {   
-                if (matAprobada_id == materia.id_materia)
+                if (materia_id == materia.id_materia)
                 {
                     materia.intentos++;
+
+                    dbref.
+                    Child("alumnos").
+                    Child(PocketDroidsConstants.USER_ID).
+                    Child("materias").
+                    Child("Atrapadas").
+                    Child(materia_id).
+                    Child("intentos").
+                    SetValueAsync(materia.intentos);
                     
                     if (materia.intentos > 3)
                     {
