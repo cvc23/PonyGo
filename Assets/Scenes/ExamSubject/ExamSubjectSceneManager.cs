@@ -65,16 +65,19 @@ public class ExamSubjectSceneManager : MonoBehaviour
         {
             correctScreen.SetActive(true);
             correctScreen.GetComponentInChildren<Text>().text = "Felicidades! aprobaste la materia!";
+
+            string matAprobada_id = PocketDroidsConstants.SUBJECT_SELECTED_ID;
+
             Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLevelUp);
             Firebase.Analytics.FirebaseAnalytics.LogEvent(
-                "AproboMateria", "materia_id", PocketDroidsConstants.SUBJECT_SELECTED_ID
+                "AproboMateria", "materia_id", matAprobada_id
             );
 
             DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
 
-            Materia materiaAprobada = new Materia(
-            PocketDroidsConstants.SUBJECT_SELECTED_ID,
-            PocketDroidsConstants.SUBJECT_SELECTED_CREDITS
+            MateriaAP materiaAprobada = new MateriaAP(
+                System.Int32.Parse( PocketDroidsConstants.SUBJECT_SELECTED_CREDITS),
+                System.DateTime.Now.ToLongDateString()
             );
             string json = JsonUtility.ToJson(materiaAprobada);
 
@@ -83,8 +86,11 @@ public class ExamSubjectSceneManager : MonoBehaviour
             Child(PocketDroidsConstants.USER_ID).
             Child("materias").
             Child("Aprobadas").
-            Push().
+            Child(matAprobada_id).
             SetRawJsonValueAsync(json);
+
+            PocketDroidsConstants.APROVED_SUBJECTS.Add(matAprobada_id);
+
         }
         else
         {
@@ -145,15 +151,14 @@ public class ExamSubjectSceneManager : MonoBehaviour
         SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_TRAINING, new List<GameObject>());
     }
 
-    public class Materia
-    {
-        public string id_materia;
-        public string creditos;
+    public class MateriaAP{
+        public int creditos;
+        public string fecha_aprobacion;
 
-        public Materia(string username, string email)
-        {
-            this.id_materia = username;
-            this.creditos = email;
+        public MateriaAP(int creditos, string fecha_aprobacion){
+            this.creditos = creditos;
+            this.fecha_aprobacion = fecha_aprobacion;
         }
     }
+
 }

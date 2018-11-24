@@ -95,27 +95,19 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
         Firebase.Analytics.FirebaseAnalytics.LogEvent(
             Firebase.Analytics.FirebaseAnalytics.EventLevelUp
         );
-        Debug.Log("Se registro en Analytics, ceamos si en DB");
+        // Debug.Log("Se registro en Analytics, ceamos si en DB");
+
+        string id_matAtrapada = droid.GetComponent<Droid>().Id;
+        int atrapadas = checharAtrapadas(id_matAtrapada);
 
         DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
-
-        Materia materiaAtrapada = new Materia(
-            droid.GetComponent<Droid>().Id,
-            droid.GetComponent<Droid>().Subject
-            );
-        string json = JsonUtility.ToJson(materiaAtrapada);
-
-        dbref. //Child("testeo").
+        dbref. 
             Child("alumnos").
             Child(PocketDroidsConstants.USER_ID).
             Child("materias").
             Child("Atrapadas").
-            Push().
-            SetRawJsonValueAsync(json);
-
-        PocketDroidsConstants.CAPTURED_SUBJECTS.Add(droid.GetComponent<Droid>().Id);
-
-        Debug.Log("10-04, agregado");
+            Child(id_matAtrapada).
+            SetValueAsync(atrapadas);
 
         Invoke("MoveToWorldScene", 2.0f);
     }
@@ -129,15 +121,22 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
         SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_WORLD, new List<GameObject>());
     }
 
-    public class Materia
-    {
-        public string id_materia;
-        public string nombre;
+    private int checharAtrapadas(string id_matAtrapada){
+        foreach (var materia in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
+                if (id_matAtrapada == materia.id_materia) {
+                    materia.atrapadas++;
+                    return  materia.atrapadas;
+                }
+        
+        PocketDroidsConstants.CAPTUREDPRO_SUBJECTS.
+            Add(
+                new PocketDroidsConstants.Materia(
+                    id_matAtrapada,
+                    1
+                )
+            );
 
-        public Materia(string username, string email)
-        {
-            this.id_materia = username;
-            this.nombre = email;
-        }
+        return 1;
     }
+    
 }
