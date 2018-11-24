@@ -19,18 +19,18 @@ public static class PocketDroidsConstants {
     {
         public string id_materia;
         public int atrapadas;
-        public int creditos;
+        public int intentos;
         public Materia(string id_materia, int atrapadas)
         {
             this.id_materia = id_materia;
             this.atrapadas = atrapadas;
-            this.creditos = 100;
+            this.intentos = 0;
         }
-        public Materia(string id_materia, int atrapadas, int creditos)
+        public Materia(string id_materia, int atrapadas, int intentos)
         {
             this.id_materia = id_materia;
             this.atrapadas = atrapadas;
-            this.creditos = creditos;
+            this.intentos = intentos;
         }
     }
 

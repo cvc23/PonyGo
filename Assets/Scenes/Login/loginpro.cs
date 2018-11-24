@@ -61,7 +61,13 @@ public class loginpro : MonoBehaviour {
                     foreach (var materia in snapshot.Children)
                     {
                         IDictionary dictSubject = (IDictionary)materia.Value;
-                        Debug.Log ("id: " + dictSubject["id_materia"] + " atrapadas:  " + dictSubject["atrapadas"]);
+                        Debug.Log ("id: " 
+                        + dictSubject["id_materia"] 
+                        + " atrapadas:  " 
+                        + dictSubject["atrapadas"]
+                        + " intentos:  " 
+                        + dictSubject["intentos"] 
+                        );
                         
                         PocketDroidsConstants.CAPTUREDPRO_SUBJECTS.Add(
                             new PocketDroidsConstants.Materia(

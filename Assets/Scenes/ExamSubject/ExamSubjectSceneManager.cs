@@ -61,12 +61,14 @@ public class ExamSubjectSceneManager : MonoBehaviour
     }
 
     private void checkResult(){
+        string matAprobada_id = PocketDroidsConstants.SUBJECT_SELECTED_ID;
+
         if (correct >= 2)
         {
             correctScreen.SetActive(true);
             correctScreen.GetComponentInChildren<Text>().text = "Felicidades! aprobaste la materia!";
 
-            string matAprobada_id = PocketDroidsConstants.SUBJECT_SELECTED_ID;
+            
 
             Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLevelUp);
             Firebase.Analytics.FirebaseAnalytics.LogEvent(
@@ -96,19 +98,25 @@ public class ExamSubjectSceneManager : MonoBehaviour
         {
             wrongScreen.SetActive(true);
             //verify how many times the user has taken this exam
-            int attempts = 0;
-            if (attempts > 3)
-            {
-                //you fail and you have to quit the game
-                wrongScreen.GetComponentInChildren<Text>().text = "Lastima... saca ficha el siguiente semestre...";
+            foreach (var materia in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
+            {   
+                if (matAprobada_id == materia.id_materia)
+                {
+                    materia.intentos++;
+                    
+                    if (materia.intentos > 3)
+                    {
+                        //you fail and you have to quit the game
+                        wrongScreen.GetComponentInChildren<Text>().text = "Lastima... saca ficha el siguiente semestre...";
+                    }
+                    else
+                    {
+                        //the user still has another chance
+                        wrongScreen.GetComponentInChildren<Text>().text = "Sigue estudiando";
+                    }
+                    
+                }
             }
-            else
-            {
-                //the user still has another chance
-                wrongScreen.GetComponentInChildren<Text>().text = "Sigue estudiando";
-
-            }
-
         }
         Invoke("MoveToTrainingScene", 1.5f);
 
