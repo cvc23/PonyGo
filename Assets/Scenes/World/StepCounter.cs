@@ -19,7 +19,7 @@ public class StepCounter : MonoBehaviour {
         int Steps = 0;
         double Distance = (Steps * (0.58));
         OnStep(Steps, Distance);
-//        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnStep(int steps, double distance) {
@@ -33,8 +33,8 @@ public class StepCounter : MonoBehaviour {
 
     private void OnDisable() {
         // Release the pedometer
-        pedometer.Dispose();
-        pedometer = null;
+        //pedometer.Dispose();
+        //pedometer = null;
     }
  
 }
