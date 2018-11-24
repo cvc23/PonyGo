@@ -23,6 +23,7 @@ public static class PocketDroidsConstants {
     public static string SUBJECT_SELECTED_TH = "0";
     public static string SUBJECT_SELECTED_PH = "0";
     public static string SUBJECT_SELECTED_CREDITS = "0";
+    public static int PLAYER_STEPS = 0;
     public static List<string> SUBJECT_QUESTIONS = new List<string>();
 
 

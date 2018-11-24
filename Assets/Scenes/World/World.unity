@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -367,7 +367,7 @@ RectTransform:
   m_GameObject: {fileID: 171932762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39632675, y: 0.4656, z: 1}
+  m_LocalScale: {x: 0.8253109, y: 0.9695655, z: 2.0824}
   m_Children: []
   m_Father: {fileID: 1372647606}
   m_RootOrder: 0
@@ -3344,6 +3344,7 @@ GameObject:
   - component: {fileID: 1372647606}
   - component: {fileID: 1372647608}
   - component: {fileID: 1372647607}
+  - component: {fileID: 1372647609}
   m_Layer: 5
   m_Name: Steps
   m_TagString: Untagged
@@ -3359,7 +3360,7 @@ RectTransform:
   m_GameObject: {fileID: 1372647605}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3272825, y: 1.0950774, z: 2.5634434}
+  m_LocalScale: {x: 2.392267, y: 1.9737451, z: 4.6202984}
   m_Children:
   - {fileID: 171932763}
   - {fileID: 2071471751}
@@ -3368,7 +3369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 79, y: 87}
+  m_AnchoredPosition: {x: 130.2, y: 126.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372647607
@@ -3405,6 +3406,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1372647605}
   m_CullTransparentMesh: 0
+--- !u!114 &1372647609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1372647605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f4cedae013f4521954f0b53c36c07d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StepText: {fileID: 171932764}
+  DistanceText: {fileID: 2071471752}
 --- !u!1 &1447769405
 GameObject:
   m_ObjectHideFlags: 0
@@ -4555,14 +4569,14 @@ RectTransform:
   m_GameObject: {fileID: 2071471750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4138, y: 1.4138, z: 1.4138}
   m_Children: []
   m_Father: {fileID: 1372647606}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.1999998, y: -17.947008}
+  m_AnchoredPosition: {x: 2.2, y: -17.947}
   m_SizeDelta: {x: 75, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2071471752
