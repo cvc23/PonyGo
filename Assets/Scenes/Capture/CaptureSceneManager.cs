@@ -34,25 +34,52 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
 		CalculateMaxThrows();
 		currentThrowAttempts = maxThrowAttempts;
         //display a subject on the scene
-        switch (PocketDroidsConstants.DROID_SELECTED)
+        /*switch (PocketDroidsConstants.DROID_SELECTED)
         {
-            case "Especialidad1":
+            case "ACF-0901": //calculo Diferencial
                 Instantiate(droids[0], new Vector3(0, 0, 0), Quaternion.identity);
                 break;
-            case "Especialidad2":
+            case "AEF-1032": //Fundamentos de programacion
+                Instantiate(droids[2], new Vector3(0, 0, 0), Quaternion.identity);
+                break;
+            case "ACF-0902": //Calculo Integral
                 Instantiate(droids[1], new Vector3(0, 0, 0), Quaternion.identity);
                 break;
-            case "Desarrollo de aplic. para Disp. Moviles":
-                Instantiate(droids[2], new Vector3(0, 0, 0), Quaternion.identity);
+            case "ACF-0903": //Algebra lineal
+                Instantiate(droids[1], new Vector3(0, 0, 0), Quaternion.identity);
                 break;
             default:
                 break;
         }
-        print(PocketDroidsConstants.DROID_SELECTED);
-        GameObject droid = GameObject.FindWithTag("Droid");
-        droid.transform.Rotate(0, 180, 0);
-        droid.transform.Translate(0.5f, 2.61f, -0.12f);
-        nameSubject.text = droid.GetComponent<Droid>().Subject;
+        */
+
+        for (int i = 0; i < droids.Length; i++){
+            if(droids[i].Id.Equals(PocketDroidsConstants.DROID_SELECTED)){
+                //print(PocketDroidsConstants.DROID_SELECTED);
+                Instantiate(droids[i], new Vector3(0, 0, 0), Quaternion.identity);
+                GameObject droid = GameObject.FindWithTag("Droid");
+                droid.transform.Rotate(0, 180, 0);
+                droid.transform.Translate(0.5f, 2.61f, -0.12f);
+                nameSubject.text = droid.GetComponent<Droid>().Subject;
+
+                //Place the object in the right position
+                switch (droid.GetComponent<Droid>().ModelType)
+                {
+                    case "laptop": //Fundamentos de programacion
+                        droid.transform.Translate(0.5f, 2.61f, -0.12f);
+                        break;
+                    case "ACF": //Calculo Integral
+                        Instantiate(droids[1], new Vector3(0, 0, 0), Quaternion.identity);
+                        break;
+                    case "ACe": //Algebra lineal
+                        Instantiate(droids[1], new Vector3(0, 0, 0), Quaternion.identity);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
 
     }
 

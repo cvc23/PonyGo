@@ -435,7 +435,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4253269250458116, guid: c0f0fefd08dc76049a370437ed5ae5ca, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0f0fefd08dc76049a370437ed5ae5ca, type: 2}
@@ -805,9 +805,10 @@ MonoBehaviour:
   orb: {fileID: 1774737372042392, guid: c0f0fefd08dc76049a370437ed5ae5ca, type: 2}
   spawnPoint: {x: -0.04, y: 1.966402, z: -7.82}
   droids:
-  - {fileID: 114760014934985786, guid: 48fb9d147bf344b0b9f4214d375377a0, type: 2}
-  - {fileID: 114439536386151500, guid: f6cde1c580e714399b1e218ba3044cc4, type: 2}
-  - {fileID: 114774792875826944, guid: 92d10c93e55e74f608338f3cae4a3705, type: 2}
+  - {fileID: 114826041538620514, guid: c9a5f8b65025f461fb865ed406126363, type: 2}
+  - {fileID: 114709434144162282, guid: 7b432dc2a7f6c4ade96bd94f6e9b95d8, type: 2}
+  - {fileID: 114810422332582190, guid: c33d5b48b91134b81920b63c5d200cbe, type: 2}
+  - {fileID: 114985314744359358, guid: 67b826d3468a34c38bae054e439d3467, type: 2}
   nameSubject: {fileID: 1599832591}
 --- !u!114 &862448805
 MonoBehaviour:
@@ -906,7 +907,7 @@ Transform:
   m_Children:
   - {fileID: 862448802}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &967842188
 GameObject:

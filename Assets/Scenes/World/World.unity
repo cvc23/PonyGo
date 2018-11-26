@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1544,9 +1544,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableDroids:
-  - {fileID: 114439536386151500, guid: f6cde1c580e714399b1e218ba3044cc4, type: 2}
-  - {fileID: 114760014934985786, guid: 48fb9d147bf344b0b9f4214d375377a0, type: 2}
-  - {fileID: 114774792875826944, guid: 92d10c93e55e74f608338f3cae4a3705, type: 2}
+  - {fileID: 114826041538620514, guid: c9a5f8b65025f461fb865ed406126363, type: 2}
+  - {fileID: 114709434144162282, guid: 7b432dc2a7f6c4ade96bd94f6e9b95d8, type: 2}
+  - {fileID: 114810422332582190, guid: c33d5b48b91134b81920b63c5d200cbe, type: 2}
+  - {fileID: 114985314744359358, guid: 67b826d3468a34c38bae054e439d3467, type: 2}
   waitTime: 180
   startingDroids: 3
   minRange: 1
@@ -3344,7 +3345,6 @@ GameObject:
   - component: {fileID: 1372647606}
   - component: {fileID: 1372647608}
   - component: {fileID: 1372647607}
-  - component: {fileID: 1372647609}
   m_Layer: 5
   m_Name: Steps
   m_TagString: Untagged
@@ -3406,19 +3406,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1372647605}
   m_CullTransparentMesh: 0
---- !u!114 &1372647609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1372647605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f4cedae013f4521954f0b53c36c07d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StepText: {fileID: 171932764}
-  DistanceText: {fileID: 2071471752}
 --- !u!1 &1447769405
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,192 @@
+fileFormatVersion: 2
+guid: 9394d7353292b484b867f154e7915f7e
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: DialPad
+    100004: DispalyBody
+    100006: PhoneBody
+    100008: Plane005
+    100010: Plane006
+    100012: Plane007
+    100014: Plane008
+    100016: Plane009
+    100018: Plane010
+    100020: Plane011
+    100022: Plane012
+    100024: Plane013
+    100026: Plane014
+    100028: Plane015
+    100030: Plane016
+    100032: Plane017
+    100034: Receiver
+    100036: TextPlus001
+    100038: wire
+    400000: //RootNode
+    400002: DialPad
+    400004: DispalyBody
+    400006: PhoneBody
+    400008: Plane005
+    400010: Plane006
+    400012: Plane007
+    400014: Plane008
+    400016: Plane009
+    400018: Plane010
+    400020: Plane011
+    400022: Plane012
+    400024: Plane013
+    400026: Plane014
+    400028: Plane015
+    400030: Plane016
+    400032: Plane017
+    400034: Receiver
+    400036: TextPlus001
+    400038: wire
+    2100000: 'Material #160'
+    2100002: 'Material #186'
+    2100004: 'Material #159'
+    2100006: 'Material #184'
+    2100008: 'Material #185'
+    2100010: DialPad
+    2100012: No Name
+    2300000: DialPad
+    2300002: DispalyBody
+    2300004: PhoneBody
+    2300006: Plane005
+    2300008: Plane006
+    2300010: Plane007
+    2300012: Plane008
+    2300014: Plane009
+    2300016: Plane010
+    2300018: Plane011
+    2300020: Plane012
+    2300022: Plane013
+    2300024: Plane014
+    2300026: Plane015
+    2300028: Plane016
+    2300030: Plane017
+    2300032: Receiver
+    2300034: TextPlus001
+    2300036: wire
+    3300000: DialPad
+    3300002: DispalyBody
+    3300004: PhoneBody
+    3300006: Plane005
+    3300008: Plane006
+    3300010: Plane007
+    3300012: Plane008
+    3300014: Plane009
+    3300016: Plane010
+    3300018: Plane011
+    3300020: Plane012
+    3300022: Plane013
+    3300024: Plane014
+    3300026: Plane015
+    3300028: Plane016
+    3300030: Plane017
+    3300032: Receiver
+    3300034: TextPlus001
+    3300036: wire
+    4300000: DispalyBody
+    4300002: Receiver
+    4300004: Plane016
+    4300006: DialPad
+    4300008: PhoneBody
+    4300010: Plane005
+    4300012: TextPlus001
+    4300014: Plane006
+    4300016: Plane007
+    4300018: Plane008
+    4300020: Plane009
+    4300022: Plane010
+    4300024: Plane011
+    4300026: Plane012
+    4300028: Plane013
+    4300030: Plane014
+    4300032: Plane015
+    4300034: Plane017
+    4300036: wire
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
