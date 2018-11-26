@@ -32,10 +32,10 @@ public class StepCounter : MonoBehaviour {
             {
                 if (dbtask.IsFaulted)
                     Debug.LogError("no está lo que quieres");
-                else if (task.IsCompleted)
+                else if (dbtask.IsCompleted)
                 {
-                    DataSnapshot snapshot = task.Result;
-                    PocketDroidsConstants.PLAYER_STEPS = snapshot.Value;
+                    DataSnapshot snapshot = dbtask.Result;
+                    PocketDroidsConstants.PLAYER_STEPS = (int)snapshot.Value;
                 }
             });
 

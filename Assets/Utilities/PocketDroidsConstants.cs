@@ -32,6 +32,11 @@ public static class PocketDroidsConstants {
             this.atrapadas = atrapadas;
             this.intentos = intentos;
         }
+
+        public string SaveToString()
+        {
+            return JsonUtility.ToJson(this);
+        }
     }
 
     public static string TAG_DROID = "Droid";

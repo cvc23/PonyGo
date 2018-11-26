@@ -98,8 +98,8 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
         // Debug.Log("Se registro en Analytics, ceamos si en DB");
 
         string id_matAtrapada = droid.GetComponent<Droid>().Id;
-        int atrapadas = checharAtrapadas(id_matAtrapada);
-
+        PocketDroidsConstants.Materia materia = checharAtrapadas(id_matAtrapada);
+        
         DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
         dbref. 
             Child("alumnos").
@@ -107,7 +107,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
             Child("materias").
             Child("Atrapadas").
             Child(id_matAtrapada).
-            SetValueAsync(atrapadas);
+            SetRawJsonValueAsync(materia.SaveToString());
 
         Invoke("MoveToWorldScene", 2.0f);
     }
@@ -121,22 +121,19 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
         SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_WORLD, new List<GameObject>());
     }
 
-    private int checharAtrapadas(string id_matAtrapada){
+    private PocketDroidsConstants.Materia checharAtrapadas(string id_matAtrapada){
         foreach (var materia in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
                 if (id_matAtrapada == materia.id_materia) {
                     materia.atrapadas++;
-                    return  materia.atrapadas;
+                    return  materia;
                 }
-        
-        PocketDroidsConstants.CAPTUREDPRO_SUBJECTS.
-            Add(
-                new PocketDroidsConstants.Materia(
+        PocketDroidsConstants.Materia nvaMateria = new PocketDroidsConstants.Materia(
                     id_matAtrapada,
                     1
-                )
-            );
+                );
+        PocketDroidsConstants.CAPTUREDPRO_SUBJECTS.Add(nvaMateria);
 
-        return 1;
+        return nvaMateria;
     }
     
 }
