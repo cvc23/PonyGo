@@ -107,7 +107,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
             Child("materias").
             Child("Atrapadas").
             Child(id_matAtrapada).
-            SetRawJsonValueAsync(materia.SaveToString());
+            SetRawJsonValueAsync(materia.SaveToString2());
 
         Invoke("MoveToWorldScene", 2.0f);
     }
