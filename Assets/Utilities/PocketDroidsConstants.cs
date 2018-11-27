@@ -13,7 +13,35 @@ public static class PocketDroidsConstants {
 
 
     public static string USER_ID = "none";
-    public static List<string> CAPTURED_SUBJECTS = new List<string>();
+    public static List<string> APROVED_SUBJECTS = new List<string>();
+    public static List<Materia> CAPTUREDPRO_SUBJECTS = new List<Materia>();
+       public class Materia
+    {
+        public string id_materia;
+        public int atrapadas;
+        public int intentos;
+        public Materia(string id_materia, int atrapadas)
+        {
+            this.id_materia = id_materia;
+            this.atrapadas = atrapadas;
+            this.intentos = 0;
+        }
+        public Materia(string id_materia, int atrapadas, int intentos)
+        {
+            this.id_materia = id_materia;
+            this.atrapadas = atrapadas;
+            this.intentos = intentos;
+        }
+
+        public string SaveToString()
+        {
+            return JsonUtility.ToJson(this);
+        }
+        public string SaveToString2()
+        {
+            return "{ \"atrapadas\":"+this.atrapadas+",\"intentos\":"+this.intentos+"}";
+        }
+    }
 
     public static string TAG_DROID = "Droid";
 	public static string TAG_OVERRIDE_ORB = "OverrideOrb";

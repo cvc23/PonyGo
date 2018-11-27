@@ -61,20 +61,22 @@ public class ExamSubjectSceneManager : MonoBehaviour
     }
 
     private void checkResult(){
+        string materia_id = PocketDroidsConstants.SUBJECT_SELECTED_ID;
+        DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
+
         if (correct >= 2)
         {
             correctScreen.SetActive(true);
             correctScreen.GetComponentInChildren<Text>().text = "Felicidades! aprobaste la materia!";
+
+            
             Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLevelUp);
-            Firebase.Analytics.FirebaseAnalytics.LogEvent(
-                "AproboMateria", "materia_id", PocketDroidsConstants.SUBJECT_SELECTED_ID
-            );
+            Firebase.Analytics.FirebaseAnalytics.LogEvent("AproboMateria", "materia_id", materia_id );
 
-            DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
 
-            Materia materiaAprobada = new Materia(
-            PocketDroidsConstants.SUBJECT_SELECTED_ID,
-            PocketDroidsConstants.SUBJECT_SELECTED_CREDITS
+            MateriaAP materiaAprobada = new MateriaAP(
+                System.Int32.Parse( PocketDroidsConstants.SUBJECT_SELECTED_CREDITS),
+                System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
             );
             string json = JsonUtility.ToJson(materiaAprobada);
 
@@ -83,26 +85,44 @@ public class ExamSubjectSceneManager : MonoBehaviour
             Child(PocketDroidsConstants.USER_ID).
             Child("materias").
             Child("Aprobadas").
-            Push().
+            Child(materia_id).
             SetRawJsonValueAsync(json);
+
+            PocketDroidsConstants.APROVED_SUBJECTS.Add(matAprobada_id);
+
         }
         else
         {
             wrongScreen.SetActive(true);
             //verify how many times the user has taken this exam
-            int attempts = 0;
-            if (attempts > 3)
-            {
-                //you fail and you have to quit the game
-                wrongScreen.GetComponentInChildren<Text>().text = "Lastima... saca ficha el siguiente semestre...";
-            }
-            else
-            {
-                //the user still has another chance
-                wrongScreen.GetComponentInChildren<Text>().text = "Sigue estudiando";
+            foreach (var materia in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
+            {   
+                if (materia_id == materia.id_materia)
+                {
+                    materia.intentos++;
 
+                    dbref.
+                    Child("alumnos").
+                    Child(PocketDroidsConstants.USER_ID).
+                    Child("materias").
+                    Child("Atrapadas").
+                    Child(materia_id).
+                    Child("intentos").
+                    SetValueAsync(materia.intentos);
+                    
+                    if (materia.intentos > 3)
+                    {
+                        //you fail and you have to quit the game
+                        wrongScreen.GetComponentInChildren<Text>().text = "Lastima... saca ficha el siguiente semestre...";
+                    }
+                    else
+                    {
+                        //the user still has another chance
+                        wrongScreen.GetComponentInChildren<Text>().text = "Sigue estudiando";
+                    }
+                    
+                }
             }
-
         }
         Invoke("MoveToTrainingScene", 1.5f);
 
@@ -145,15 +165,14 @@ public class ExamSubjectSceneManager : MonoBehaviour
         SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_TRAINING, new List<GameObject>());
     }
 
-    public class Materia
-    {
-        public string id_materia;
-        public string creditos;
+    public class MateriaAP{
+        public int creditos;
+        public string fecha_aprobacion;
 
-        public Materia(string username, string email)
-        {
-            this.id_materia = username;
-            this.creditos = email;
+        public MateriaAP(int creditos, string fecha_aprobacion){
+            this.creditos = creditos;
+            this.fecha_aprobacion = fecha_aprobacion;
         }
     }
+
 }

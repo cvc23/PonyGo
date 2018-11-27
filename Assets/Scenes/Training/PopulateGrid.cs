@@ -78,11 +78,16 @@ public class PopulateGrid : MonoBehaviour
 		
 	}
 
-    //private List<string> subjects = new List<string>();
-    private List<string> subjects = PocketDroidsConstants.CAPTURED_SUBJECTS;
-
+    private List<string> subjects = new List<string>();
+    
     private void populateGridSubject(){
+        /* Codigo chido  hasta que estén los modelos
 
+        foreach (var materia in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
+            subjects.Add(materia.id_materia);
+        
+        */    
+        
         //Change this list with the real static list...
         subjects.Add("ACC-0906");
         subjects.Add("TIC-1002");

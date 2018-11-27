@@ -39,8 +39,8 @@ public class WorldSceneManager : PocketDroidsSceneManager {
         if (previousSub == "none")
             return true;
         else
-            foreach (var matAtrapada in PocketDroidsConstants.CAPTURED_SUBJECTS)
-                if (previousSub == matAtrapada) return true;
+            foreach (var matAtrapada in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
+                if (previousSub == matAtrapada.id_materia) return true;
         return false;
     }
 
