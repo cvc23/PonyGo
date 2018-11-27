@@ -30,8 +30,10 @@ public class StepCounter : MonoBehaviour {
             .GetValueAsync()
             .ContinueWith(dbtask =>
             {
-                if (dbtask.IsFaulted)
+                if (dbtask.IsFaulted){
                     Debug.LogError("no está lo que quieres");
+                    PocketDroidsConstants.PLAYER_STEPS = 0 ;
+                }
                 else if (dbtask.IsCompleted)
                 {
                     DataSnapshot snapshot = dbtask.Result;
