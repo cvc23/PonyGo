@@ -95,6 +95,7 @@ public class ExamSubjectSceneManager : MonoBehaviour
         {
             wrongScreen.SetActive(true);
             //verify how many times the user has taken this exam
+            Firebase.Analytics.FirebaseAnalytics.LogEvent("ReproboMateria", "materia_id", materia_id );
             foreach (var materia in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
             {   
                 if (materia_id == materia.id_materia)
@@ -114,6 +115,7 @@ public class ExamSubjectSceneManager : MonoBehaviour
                     {
                         //you fail and you have to quit the game
                         wrongScreen.GetComponentInChildren<Text>().text = "Lastima... saca ficha el siguiente semestre...";
+                        Firebase.Analytics.FirebaseAnalytics.LogEvent("ReproboEspecial", "materia_id", materia_id );
                     }
                     else
                     {

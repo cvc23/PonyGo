@@ -50,7 +50,7 @@ public class StepCounter : MonoBehaviour {
     private void OnStep(int steps, double distance) {
         // Display the values
         StepText.text = steps.ToString();
-
+        Firebase.Analytics.FirebaseAnalytics.LogEvent("Dió un paso");
         DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
         dbref. 
             Child("alumnos").
