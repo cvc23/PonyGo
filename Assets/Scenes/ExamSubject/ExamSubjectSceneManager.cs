@@ -88,7 +88,7 @@ public class ExamSubjectSceneManager : MonoBehaviour
             Child(materia_id).
             SetRawJsonValueAsync(json);
 
-            PocketDroidsConstants.APROVED_SUBJECTS.Add(matAprobada_id);
+            PocketDroidsConstants.APROVED_SUBJECTS.Add(materia_id);
 
         }
         else
