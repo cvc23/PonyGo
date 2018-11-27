@@ -65,18 +65,74 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
                 //Place the object in the right position
                 switch (droid.GetComponent<Droid>().ModelType)
                 {
-                    case "laptop": //Fundamentos de programacion
-                        droid.transform.Translate(0.5f, 2.61f, -0.12f);
+                    case "laptop": //Programación
+                        droid.transform.Translate(0.6f, 0.32f, -0.12f);
                         break;
-                    case "ACF": //Calculo Integral
-                        Instantiate(droids[1], new Vector3(0, 0, 0), Quaternion.identity);
+                    case "balanza": //ética
+                        droid.transform.Translate(-0.6f, 0.4f, -0.12f);
                         break;
-                    case "ACe": //Algebra lineal
-                        Instantiate(droids[1], new Vector3(0, 0, 0), Quaternion.identity);
+                    case "satellite": //telecomunicaciones
+                        droid.transform.Translate(0.14f, 2.75f, -0.12f);
+                        break;
+                    case "dice": //probailidad
+                        droid.transform.Translate(0.13f, 1.36f, -0.12f);
+                        break;
+                    case "ball": //ing de software
+                        droid.transform.Translate(0.09f, 2.19f, -0.12f);
+                        break;
+                    case "trophy": //emprendedor
+                        droid.transform.Translate(-0.1f, 0.34f, -0.12f);
+                        break;
+                    case "wifi": //redes inalámbricas
+                        droid.transform.Translate(-0.3814f, 1.54f, 3.41f);
+                        break;
+                    case "android": //aplicaciones móviles
+                        droid.transform.Translate(-0.06f, 2.2f, -0.12f);
+                        break;
+                    case "books": //investigación
+                        droid.transform.Translate(1.7f, 0.23f, -4.25f);
+                        break;
+                    case "bank": //contabilidad
+                        droid.transform.Translate(0.02f, 0.34f, -0.12f);
+                        droid.transform.Rotate(0, -90, 0);
+                        break;
+                    case "plant": //desarrollo sustentable
+                        droid.transform.Translate(0f, 0.34f, -0.12f);
+                        break;
+                    case "serverrack": //base de datos distribuidas
+                        droid.transform.Translate(0.12f, 0.34f, -0.12f);
+                        break;
+                    case "server": //telecomunicaciones
+                        droid.transform.Translate(-0.12f, 0.34f, -0.12f);
+                        break;
+                    case "apple": //sistemas operativos
+                        droid.transform.Translate(0.05f, 2.08f, -0.12f);
+                        droid.transform.Rotate(0, 270, 90);
+                        break;
+                    case "building": //practicas profesionales
+                        droid.transform.Translate(-2.5f, 2.08f, 4.33f);
+                        droid.transform.Rotate(-90, 180, 0);
+                        break;
+                    case "telephone": //telecomunicaciones
+                        droid.transform.Translate(0f, 2.64f, -0.12f);
+                        droid.transform.Rotate(0, -90, 0);
+                        break;
+                    case "bulb": //interaccion huamno computadora
+                        droid.transform.Translate(0.03f, 0.34f, -0.12f);
+                        break;
+                    case "ironman": //interaccion huamno computadora
+                        droid.transform.Translate(-3.12f, 0.34f, -0.12f);
+                        break;
+                    case "r2d2": //ingenieria del conocimiento
+                        droid.transform.Translate(-0.12f, 0.43f, -0.12f);
+                        break;
+                    case "atm": //ingenieria del conocimiento
+                        droid.transform.Translate(0.14f, 2.75f, -0.12f);
                         break;
                     default:
                         break;
                 }
+                break;
             }
         }
 
