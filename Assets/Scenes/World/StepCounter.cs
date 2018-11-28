@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using PedometerU;
+using PedometerU;
 using UnityEngine.Assertions;
 using System;
 using Firebase;
@@ -13,11 +13,11 @@ public class StepCounter : MonoBehaviour {
 
     [SerializeField] private Text StepText;
     [SerializeField] private Text DistanceText;
-    //private Pedometer pedometer;
+    private Pedometer pedometer;
 
     private void Start() {
         // Create a new pedometer
-       // pedometer = new Pedometer(OnStep);
+       pedometer = new Pedometer(OnStep);
         // Reset UI
 
         int Steps = PocketDroidsConstants.PLAYER_STEPS;
