@@ -20,27 +20,6 @@ public class StepCounter : MonoBehaviour {
         pedometer = new Pedometer(OnStep);
         // Reset UI
 
-        //Charging number of steps from firebase
-        string stepsRef =   "alumnos/" +
-                            PocketDroidsConstants.USER_ID +
-                            "/system/pasosCaminados";
-
-        FirebaseDatabase.DefaultInstance
-            .GetReference(stepsRef)
-            .GetValueAsync()
-            .ContinueWith(dbtask =>
-            {
-                if (dbtask.IsFaulted){
-                    Debug.LogError("no está lo que quieres");
-                    PocketDroidsConstants.PLAYER_STEPS = 0 ;
-                }
-                else if (dbtask.IsCompleted)
-                {
-                    DataSnapshot snapshot = dbtask.Result;
-                    PocketDroidsConstants.PLAYER_STEPS = (int)snapshot.Value;
-                }
-            });
-
         int Steps = PocketDroidsConstants.PLAYER_STEPS;
         double Distance = (Steps * (0.48));
         OnStep(Steps, Distance);
