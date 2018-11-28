@@ -27,4 +27,6 @@ public static class PocketDroidsConstants {
     public static List<string> SUBJECT_QUESTIONS = new List<string>();
 
 
+    public static int THROWS = 3;
+
 }
