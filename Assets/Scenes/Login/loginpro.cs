@@ -43,11 +43,11 @@ public class loginpro : MonoBehaviour {
             PocketDroidsConstants.USER_ID = newUser.UserId;
             Debug.Log("Tenemos id: " + PocketDroidsConstants.USER_ID);
 
-            string misMateriasRef = "alumnos/" + newUser.UserId + "/materias/Atrapadas";
-            Debug.Log("Asi quedo la referencia: " + misMateriasRef);
+            string alumnoRef = "alumnos/" + newUser.UserId;
+            Debug.Log("Asi quedo la referencia: " + alumnoRef);
 
             FirebaseDatabase.DefaultInstance
-            .GetReference(misMateriasRef)
+            .GetReference(alumnoRef)
             .GetValueAsync()
             .ContinueWith(dbtask => {
                 if (dbtask.IsFaulted)
@@ -57,32 +57,51 @@ public class loginpro : MonoBehaviour {
                 else if (task.IsCompleted)
                 {
                     DataSnapshot snapshot = dbtask.Result;
-                    Debug.Log("mira el resultado:" + snapshot.Children.ToString() );
-                    foreach (var materia in snapshot.Children)
+
+                    // REcuperando los pasos avanzados
+                    Debug.Log("Estos pasos recibi: "+ snapshot.Child("system").Child("pasosCaminados").Value);
+                    PocketDroidsConstants.PLAYER_STEPS = System.Int32.Parse(snapshot.Child("system").Child("pasosCaminados").Value.ToString());
+                    Debug.Log("gaurado" + PocketDroidsConstants.PLAYER_STEPS);
+
+                     /* RECUPERANDO MATERIAS  c a p t u r a d a s   */ 
+                    foreach (var materia in snapshot.Child("materias").Child("Atrapadas").Children)
                     {
                         IDictionary dictSubject = (IDictionary)materia.Value;
-                        Debug.Log ("id: " 
-                        + materia.Key
-                        + " atrapadas:  " 
-                        + dictSubject["atrapadas"]
-                        + " intentos:  " 
-                        + dictSubject["intentos"] 
+                        Debug.Log ("id: " + materia.Key
+                        + " atrapadas:  " + dictSubject["atrapadas"]
+                        + " intentos:  " + dictSubject["intentos"] 
                         );
-                        
                         PocketDroidsConstants.CAPTUREDPRO_SUBJECTS.Add(
                             new PocketDroidsConstants.Materia(
                                 materia.Key.ToString(),
                                 System.Int32.Parse(dictSubject["atrapadas"].ToString()),
                                 System.Int32.Parse(dictSubject["intentos"].ToString())
                             ) );
-
                     }
+                    // Debug del registro
                     foreach (var statmat in PocketDroidsConstants.CAPTUREDPRO_SUBJECTS)
                      Debug.Log("Registre que tienes estas materias capturadas:  " + statmat.id_materia);   
                     
+
+                    /* RECUPERANDO MATERIAS  A P R O V A D A S  */ 
+                    foreach (var materia in snapshot.Child("materias").Child("Aprobadas").Children)
+                    {
+                        IDictionary dictSubject = (IDictionary)materia.Value;
+                        Debug.Log ("id: " 
+                        + materia.Key
+                        + " Creditos:  " 
+                        + dictSubject["creditos"]
+                        + " Feccha:  " 
+                        + dictSubject["fecha_aprobacion"] 
+                        );    
+                        PocketDroidsConstants.APROVED_SUBJECTS.Add(materia.Key);
+                    }
+                    // Debug del registro
+                    foreach (var apSubject in PocketDroidsConstants.APROVED_SUBJECTS)
+                     Debug.Log("Registre que tienes estas materias Aprovadas:  " + apSubject);
                 }
             });
-
+  
             List<GameObject> objects = new List<GameObject>();
             SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_WORLD, objects);
             

@@ -173,7 +173,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
 		status = CaptureSceneStatus.Successful;
 
         Firebase.Analytics.FirebaseAnalytics.LogEvent(
-            "AtrapoMateria", "materiaName", PocketDroidsConstants.DROID_SELECTED
+            "CapturoMateria", "materiaName", PocketDroidsConstants.DROID_SELECTED
         );
         Firebase.Analytics.FirebaseAnalytics.LogEvent(
             Firebase.Analytics.FirebaseAnalytics.EventLevelUp

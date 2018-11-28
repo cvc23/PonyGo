@@ -40,12 +40,12 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void updateLevel() {
-		levelText.text = GameManager.Instance.CurrentPlayer.Lvl.ToString();
+		levelText.text = PocketDroidsConstants.APROVED_SUBJECTS.Count + "";
 	}
 
 	public void updateXP() {
-		xpText.text = GameManager.Instance.CurrentPlayer.Xp +
-		              " / " + GameManager.Instance.CurrentPlayer.RequiredXp;
+		xpText.text = PocketDroidsConstants.CAPTUREDPRO_SUBJECTS.Count +
+		              " / " + PocketDroidsConstants.GOAL_SUBJECTS;
 	}
 
 	public void MenuBtnClicked() 

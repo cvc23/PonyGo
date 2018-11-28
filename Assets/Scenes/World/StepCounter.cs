@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using PedometerU;
+//using PedometerU;
 using UnityEngine.Assertions;
 using System;
 using Firebase;
@@ -13,32 +13,12 @@ public class StepCounter : MonoBehaviour {
 
     [SerializeField] private Text StepText;
     [SerializeField] private Text DistanceText;
-    private Pedometer pedometer;
+    //private Pedometer pedometer;
 
     private void Start() {
         // Create a new pedometer
-        pedometer = new Pedometer(OnStep);
+       // pedometer = new Pedometer(OnStep);
         // Reset UI
-        //Charging number of steps from firebase
-        string stepsRef =   "alumnos/" +
-                            PocketDroidsConstants.USER_ID +
-                            "/system/pasosCaminados";
-
-        FirebaseDatabase.DefaultInstance
-            .GetReference(stepsRef)
-            .GetValueAsync()
-            .ContinueWith(dbtask =>
-            {
-                if (dbtask.IsFaulted){
-                    Debug.LogError("no está lo que quieres");
-                    PocketDroidsConstants.PLAYER_STEPS = 0 ;
-                }
-                else if (dbtask.IsCompleted)
-                {
-                    DataSnapshot snapshot = dbtask.Result;
-                    PocketDroidsConstants.PLAYER_STEPS = (int)snapshot.Value;
-                }
-            });
 
         int Steps = PocketDroidsConstants.PLAYER_STEPS;
         double Distance = (Steps * (0.48));
@@ -49,7 +29,7 @@ public class StepCounter : MonoBehaviour {
     private void OnStep(int steps, double distance) {
         // Display the values
         StepText.text = steps.ToString();
-
+        Firebase.Analytics.FirebaseAnalytics.LogEvent("Dió un paso");
         DatabaseReference dbref = FirebaseDatabase.DefaultInstance.RootReference;
         dbref. 
             Child("alumnos").
