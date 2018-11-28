@@ -13,7 +13,8 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
 	[SerializeField] private GameObject orb;
 	[SerializeField] private Vector3 spawnPoint;
     [SerializeField] private Droid[] droids;
-    [SerializeField] private Text nameSubject; 
+    [SerializeField] private Text nameSubject;
+    [SerializeField] private bool ar;
 
     private int currentThrowAttempts;
 	private CaptureSceneStatus status = CaptureSceneStatus.InProgress;
@@ -29,6 +30,10 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
 	public CaptureSceneStatus Status {
 		get { return status; }
 	}
+
+    public void resetThrows(){
+        PocketDroidsConstants.THROWS = 3;
+    }
 
 	private void Start() {
 		CalculateMaxThrows();
@@ -59,7 +64,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
                 Instantiate(droids[i], new Vector3(0, 0, 0), Quaternion.identity);
                 GameObject droid = GameObject.FindWithTag("Droid");
                 droid.transform.Rotate(0, 180, 0);
-                droid.transform.Translate(0.5f, 2.61f, -0.12f);
+                //droid.transform.Translate(0.5f, 2.61f, -0.12f);
                 nameSubject.text = droid.GetComponent<Droid>().Subject;
 
                 //Place the object in the right position
@@ -70,6 +75,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
                         break;
                     case "balanza": //ética
                         droid.transform.Translate(-0.6f, 0.4f, -0.12f);
+                        droid.transform.Rotate(-90, 0, 0);
                         break;
                     case "satellite": //telecomunicaciones
                         droid.transform.Translate(0.14f, 2.75f, -0.12f);
@@ -82,6 +88,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
                         break;
                     case "trophy": //emprendedor
                         droid.transform.Translate(-0.1f, 0.34f, -0.12f);
+                        droid.transform.Rotate(-90, 0, 0);
                         break;
                     case "wifi": //redes inalámbricas
                         droid.transform.Translate(-0.3814f, 1.54f, 3.41f);
@@ -111,7 +118,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
                         break;
                     case "building": //practicas profesionales
                         droid.transform.Translate(-2.5f, 2.08f, 4.33f);
-                        droid.transform.Rotate(-90, 180, 0);
+                        droid.transform.Rotate(-90, 0, 180);
                         break;
                     case "telephone": //telecomunicaciones
                         droid.transform.Translate(0f, 2.64f, -0.12f);
@@ -126,8 +133,50 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
                     case "r2d2": //ingenieria del conocimiento
                         droid.transform.Translate(-0.12f, 0.43f, -0.12f);
                         break;
-                    case "atm": //ingenieria del conocimiento
-                        droid.transform.Translate(0.14f, 2.75f, -0.12f);
+                    case "atm": //negocios electronicos
+                        droid.transform.Translate(1.2f, 1.34f, -0.12f);
+                        droid.transform.Rotate(0, 0, 00);
+                        break;
+                    case "broom": //servicio
+                        droid.transform.Translate(0.14f, 6.67f, -0.12f);
+                        break;
+                    case "clock": //matematicas para la toma de decisiones
+                        droid.transform.Translate(0.2f, 0.34f, -0.12f);
+                        break;
+                    case "board": //circuitos electricos
+                        droid.transform.Translate(0.05f, 1.96f, -3.4f);
+                        droid.transform.Rotate(180, 270, 90);
+                        break;
+                    case "machine": //matematicas discreas
+                        droid.transform.Translate(0.16f, 1.73f, 1.24f);
+                        droid.transform.Rotate(-90, 180, 180);
+                        break;
+                    case "book": //administracion
+                        droid.transform.Translate(-0.08f, 2.76f, 0.12f);
+                        droid.transform.Rotate(90, 180, 0);
+                        break;
+                    case "router": //administracion
+                        droid.transform.Translate(0f, 2.1f, -0.12f);
+                        droid.transform.Rotate(0, 0, 0);
+                        break;
+                    case "circuit": //administracion
+                        droid.transform.Translate(-2.28f, 0.34f, -0.12f);
+                        droid.transform.Rotate(90, 180, 0);
+                        break;
+                    case "folder": //administracion
+                        droid.transform.Translate(0.07f, 2.35f, -0.12f);
+                        //droid.transform.Rotate(0, 180, 0);
+                        break;
+                    case "insect": //administracion
+                        droid.transform.Translate(0f, 2.58f, -0.12f);
+                        droid.transform.Rotate(-90, 0, 0);
+                        break;
+                    case "camera": //administracion
+                        droid.transform.Translate(-1.33f, 0.34f, -0.12f);
+                        droid.transform.Rotate(0, 90, 0);
+                        break;
+                    case "iphone": //administracion
+                        droid.transform.Translate(0.5f, 2.61f, -0.12f);
                         break;
                     default:
                         break;
@@ -196,7 +245,13 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
     }
 
     public void MoveToAR(){
-        SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_ARCAPTURE, new List<GameObject>());
+        if(ar){
+            SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_CAPTURE, new List<GameObject>());
+        }
+        else{
+            SceneTransitionManager.Instance.GoToScene(PocketDroidsConstants.SCENE_ARCAPTURE, new List<GameObject>());
+        }
+
     }
 
     private void MoveToWorldScene()
