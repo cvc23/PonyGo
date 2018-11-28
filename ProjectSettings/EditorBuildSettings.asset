@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARCapture/ARCapture.unity
     guid: 9d7d11572612d4f97b91f47fbe0002ec
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Tutorial.unity
+    guid: 340b7a5171d0e4c9985ad77b381310a4
   m_configObjects: {}

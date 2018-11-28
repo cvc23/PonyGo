@@ -62,9 +62,12 @@ public class UIManager : MonoBehaviour {
         Instance.GoToScene(PocketDroidsConstants.SCENE_TRAINING, objects);
     }
 
+
     public void TutorialButtonOnClick()
     {
-        //TODO
+        List<GameObject> objects = new List<GameObject>();
+        SceneTransitionManager.
+        Instance.GoToScene(PocketDroidsConstants.SCENE_TUTORIAL, objects);
     }
 
     public void logoutButtonOnClick()
