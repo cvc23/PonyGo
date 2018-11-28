@@ -122,7 +122,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
                         break;
                     case "telephone": //telecomunicaciones
                         droid.transform.Translate(0f, 2.64f, -0.12f);
-                        droid.transform.Rotate(0, -90, 0);
+                        droid.transform.Rotate(0, 0, 0);
                         break;
                     case "bulb": //interaccion huamno computadora
                         droid.transform.Translate(0.03f, 0.34f, -0.12f);
@@ -173,7 +173,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
                         break;
                     case "camera": //administracion
                         droid.transform.Translate(-1.33f, 0.34f, -0.12f);
-                        droid.transform.Rotate(0, 90, 0);
+                        droid.transform.Rotate(0, 0, 0);
                         break;
                     case "iphone": //administracion
                         droid.transform.Translate(0.5f, 2.61f, -0.12f);
@@ -201,6 +201,7 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
 		currentThrowAttempts--;
 		if (currentThrowAttempts <= 0) {
 			if (status != CaptureSceneStatus.Successful) {
+                nameSubject.text = " ";
                 status = CaptureSceneStatus.Failed;
                 Invoke("MoveToWorldScene", 2.0f);
             }
@@ -215,11 +216,12 @@ public class CaptureSceneManager : PocketDroidsSceneManager {
 	}
 
 	public override void droidTapped(GameObject droid) {
-		print("CaptureSceneManager.droidTapped activated");
+        print("CaptureSceneManager.droidTapped activated");
 	}
 
 	public override void droidCollision(GameObject droid, Collision other) {
-		status = CaptureSceneStatus.Successful;
+        nameSubject.text = " ";
+        status = CaptureSceneStatus.Successful;
 
         Firebase.Analytics.FirebaseAnalytics.LogEvent(
             "CapturoMateria", "materiaName", PocketDroidsConstants.DROID_SELECTED
