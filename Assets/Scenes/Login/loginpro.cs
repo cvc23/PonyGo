@@ -63,6 +63,9 @@ public class loginpro : MonoBehaviour {
                     PocketDroidsConstants.PLAYER_STEPS = System.Int32.Parse(snapshot.Child("system").Child("pasosCaminados").Value.ToString());
                     Debug.Log("gaurado" + PocketDroidsConstants.PLAYER_STEPS);
 
+                    PocketDroidsConstants.USER_NICKNAME = snapshot.Child("nickname").Value.ToString();
+                    Debug.Log("gaurado tu nickname" + PocketDroidsConstants.USER_NICKNAME);
+
                      /* RECUPERANDO MATERIAS  c a p t u r a d a s   */ 
                     foreach (var materia in snapshot.Child("materias").Child("Atrapadas").Children)
                     {
