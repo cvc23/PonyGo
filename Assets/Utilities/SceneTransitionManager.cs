@@ -26,7 +26,7 @@ public class SceneTransitionManager : Singleton<SceneTransitionManager> {
             if (obj.tag == "Droid")
             {
                 Droid droid = obj.GetComponent<Droid>();
-                PocketDroidsConstants.DROID_SELECTED = droid.Subject;
+                PocketDroidsConstants.DROID_SELECTED = droid.Id;
                 print(droid.Subject);
             }
             SceneManager.MoveGameObjectToScene(obj, sceneToLoad);

@@ -14,8 +14,10 @@ public class Droid : MonoBehaviour {
     [SerializeField] private int credits;
     [SerializeField] private string requiredSubject;
     [SerializeField] private string id;
+    [SerializeField] private string modelType;
 
-	private AudioSource audioSource;
+
+    private AudioSource audioSource;
 
 	private void Awake() {
 		audioSource = GetComponent<AudioSource>();
@@ -31,6 +33,11 @@ public class Droid : MonoBehaviour {
     public string Subject
     {
         get { return subject; }
+    }
+
+    public string ModelType
+    {
+        get { return modelType; }
     }
 
     public int Credits

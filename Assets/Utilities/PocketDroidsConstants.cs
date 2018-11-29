@@ -5,7 +5,8 @@ using UnityEngine;
 public static class PocketDroidsConstants {
 
 	public static string SCENE_WORLD = "World";
-	public static string SCENE_CAPTURE = "Capture";
+    public static string SCENE_TUTORIAL = "Tutorial";
+    public static string SCENE_CAPTURE = "Capture";
     public static string SCENE_TRAINING = "Training";
     public static string SCENE_ABOUTSUBJECT = "AboutSubject";
     public static string SCENE_EXAMSUBJECT = "ExamSubject";
@@ -56,5 +57,7 @@ public static class PocketDroidsConstants {
     public static int PLAYER_STEPS = 0;
     public static List<string> SUBJECT_QUESTIONS = new List<string>();
 
+
+    public static int THROWS = 3;
 
 }

@@ -11,6 +11,7 @@ public class ARCaptureSceneManager : PocketDroidsSceneManager {
     [SerializeField] private Vector3 spawnPoint;
     [SerializeField] private Droid[] droids;
     [SerializeField] private Text nameSubject;
+    [SerializeField] private bool ar;
 
     private int currentThrowAttempts;
     private ARCaptureSceneStatus status = ARCaptureSceneStatus.InProgress;
