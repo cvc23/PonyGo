@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using Firebase.Auth;
+using Firebase;
 
 public class UIManager : MonoBehaviour {
 
@@ -73,6 +75,13 @@ public class UIManager : MonoBehaviour {
     public void logoutButtonOnClick()
     {
         //TODO
+        /*  y la escena de Login ? 
+        FirebaseAuth.DefaultInstance.SignOut();
+          
+        List<GameObject> objects = new List<GameObject>();
+        SceneTransitionManager.
+        Instance.GoToScene(PocketDroidsConstants.Sce, objects);
+        */
     }
 
     public void closeMenuOnClick(){

@@ -14,6 +14,7 @@ public static class PocketDroidsConstants {
 
 
     public static string USER_ID = "none";
+    public static string USER_NICKNAME = "";
     public static List<string> APROVED_SUBJECTS = new List<string>();
 
     public static int GOAL_SUBJECTS = 51;
