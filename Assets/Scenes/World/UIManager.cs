@@ -19,12 +19,13 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Button closeMenu;
     [SerializeField] private Button closeAlert;
     [SerializeField] private AudioClip menuBtnSound;
+    [SerializeField] private Text Name;
 
-	private AudioSource audioSource;
+    private AudioSource audioSource;
 
 	private void Awake() {
 		audioSource = GetComponent<AudioSource>();
-
+        Name.text = PocketDroidsConstants.USER_NICKNAME;
 		Assert.IsNotNull(audioSource);
 		Assert.IsNotNull(xpText);
 		Assert.IsNotNull(levelText);
@@ -75,13 +76,13 @@ public class UIManager : MonoBehaviour {
     public void logoutButtonOnClick()
     {
         //TODO
-        /*  y la escena de Login ? 
+        //  y la escena de Login ? 
         FirebaseAuth.DefaultInstance.SignOut();
           
         List<GameObject> objects = new List<GameObject>();
         SceneTransitionManager.
-        Instance.GoToScene(PocketDroidsConstants.Sce, objects);
-        */
+                              Instance.GoToScene(PocketDroidsConstants.SCENE_LOGIN, objects);
+
     }
 
     public void closeMenuOnClick(){
